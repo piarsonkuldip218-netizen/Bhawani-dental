@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import PromoBanner from "@/components/PromoBanner";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import About from "@/components/About";
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <ScrollProgress />
+      <PromoBanner />
       <Navbar />
       <Hero />
       <Services />

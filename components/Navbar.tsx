@@ -3,17 +3,39 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Sparkles } from "lucide-react";
-import { clinic, contact, navLinks } from "@/lib/data";
+import { clinic, contact, navLinks, promo } from "@/lib/data";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  // Mirrors PromoBanner visibility — used to slide navbar below the banner
+  const [promoVisible, setPromoVisible] = useState(promo.active);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Sync with PromoBanner — read dismissal state + listen for changes
+  useEffect(() => {
+    if (!promo.active) {
+      setPromoVisible(false);
+      return;
+    }
+    const key = `bhawani-promo-dismissed:${promo.shortText}`;
+    const sync = () => {
+      try {
+        const dismissed = localStorage.getItem(key) === "1";
+        setPromoVisible(!dismissed);
+      } catch {
+        setPromoVisible(true);
+      }
+    };
+    sync();
+    window.addEventListener("promo:visibility", sync);
+    return () => window.removeEventListener("promo:visibility", sync);
   }, []);
 
   // Lock body scroll when mobile menu is open
@@ -30,9 +52,9 @@ export default function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "py-2" : "py-4"
-        }`}
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+          promoVisible ? "top-10" : "top-0"
+        } ${scrolled ? "py-2" : "py-4"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div

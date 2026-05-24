@@ -20,7 +20,10 @@ import {
   Award,
   Users,
   Clock,
-  ThumbsUp,
+  Star,
+  ScanLine,
+  Wrench,
+  GraduationCap,
 } from "lucide-react";
 
 // ---------- Clinic Identity ----------
@@ -29,47 +32,64 @@ export const clinic = {
   shortName: "Bhawani Dental",
   tagline: "Healthy Smiles, Confident Lives",
   description:
-    "Bhawani Dental Clinic offers premium, painless dental care with modern equipment and experienced doctors. Cleaning, root canal, braces, implants, whitening and kids dentistry under one roof.",
+    "Bhawani Dental Clinic in Rangapara, Sonitpur — premium painless dental care by Dr. Neelam Shah (BDS, MIDA). Root canal, braces, smile makeover, kids dentistry, teeth whitening, fillings, crowns and more under one roof.",
   keywords:
-    "dental clinic, dentist, root canal, braces, dental implants, teeth whitening, kids dentistry, painless dental treatment",
+    "dentist in Rangapara, dental clinic Sonitpur, Dr Neelam Shah, root canal Rangapara, braces Sonitpur, dental implants Assam, teeth whitening, kids dentistry, painless dental treatment, oral surgeon",
   established: 2015,
-  yearsExperience: "10+",
+  yearsExperience: "12+",
+};
+
+// ---------- Promo / Camp Offer ----------
+// Toggle `active: false` to hide the promo banner once the camp ends.
+export const promo = {
+  active: true,
+  badge: "Limited Time",
+  headline: "FREE Dental Check-up Camp",
+  detail: "25% OFF on All Procedures",
+  shortText: "FREE Camp \u00B7 25% OFF on All Procedures",
+  ctaText: "Book Now",
+  ctaHref: "#contact",
 };
 
 // ---------- Contact ----------
 export const contact = {
-  phone: "+91 98765 43210",
-  phoneRaw: "+919876543210", // for tel: links — no spaces
-  whatsapp: "919876543210", // for wa.me link — no + or spaces
-  whatsappMessage: "Hi, I would like to book an appointment at Bhawani Dental Clinic.",
-  email: "info@bhawanidental.com",
+  phone: "+91 70683 40558",
+  phoneRaw: "+917068340558", // for tel: links — no spaces
+  whatsapp: "917068340558", // for wa.me link — no + or spaces
+  whatsappMessage:
+    "Hi, I would like to book an appointment at Bhawani Dental Clinic.",
+  email: "bhawanidental@gmail.com",
   address: {
-    line1: "Main Market Road",
-    line2: "Near City Hospital",
-    city: "Jaipur",
-    state: "Rajasthan",
-    pincode: "302001",
+    line1: "M.G. Road, Near PNB Bank",
+    line2: "Rangapara",
+    city: "Sonitpur",
+    state: "Assam",
+    pincode: "784505",
   },
   hours: {
-    weekdays: "10:00 AM – 8:00 PM",
-    sunday: "10:00 AM – 2:00 PM (by appointment)",
+    weekdays: "10:00 AM \u2013 7:00 PM",
+    sunday: "10:00 AM \u2013 7:00 PM",
+    note: "Open all 7 days",
   },
+  // Search-based embed — works without API key, points to clinic location
   mapEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56811.43!2d75.78!3d26.91!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db5ca38f23193%3A0xd62b80c0d7f74de8!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1700000000000",
-  mapLink: "https://maps.google.com/?q=Bhawani+Dental+Clinic+Jaipur",
+    "https://maps.google.com/maps?q=Bhawani+Dental+Clinic+M.G.+Road+Rangapara+Sonitpur+Assam&t=&z=15&ie=UTF8&iwloc=&output=embed",
+  mapLink:
+    "https://www.google.com/maps/search/?api=1&query=Bhawani+Dental+Clinic+M.G.+Road+Rangapara+Sonitpur+Assam",
   social: {
-    instagram: "https://instagram.com/bhawanidental",
-    facebook: "https://facebook.com/bhawanidental",
+    instagram: "https://instagram.com/",
+    facebook: "https://facebook.com/",
   },
 };
 
 // ---------- Doctor ----------
 export const doctor = {
-  name: "Dr. [Doctor Name]",
-  qualification: "BDS, MDS",
-  specialization: "Cosmetic Dentistry & Endodontics",
+  name: "Dr. Neelam Shah",
+  qualification: "BDS, MIDA",
+  specialization: "Oral Surgeon & Dental Disease Specialist",
   experience: "12+ Years",
-  bio: "Dedicated to delivering pain-free, premium dental care using the latest technology. Trusted by 5000+ happy patients across the city.",
+  pastRole: "Ex-Lecturer, FDS Dental College, Gorakhpur (U.P.)",
+  bio: "Dr. Neelam Shah is a trusted Oral Surgeon and Dental Disease Specialist with over a decade of clinical and teaching experience. Previously a Lecturer at FDS Dental College, Gorakhpur, she now leads Bhawani Dental Clinic in Rangapara — combining academic rigour with gentle, modern, painless dental care for every patient.",
 };
 
 // ---------- Services ----------
@@ -83,137 +103,180 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    icon: Sparkles,
-    title: "Teeth Whitening",
+    icon: Stethoscope,
+    title: "Regular Dental Check-up",
     description:
-      "Professional whitening that brightens your smile up to 8 shades in a single session.",
-    features: ["Painless procedure", "Long-lasting results", "Same-day visible effect"],
+      "Routine examination, oral health assessment, and personalised prevention plan to keep your smile healthy.",
+    features: ["Full mouth exam", "Cavity screening", "Preventive guidance"],
     gradient: "from-teal-500 to-cyan-500",
   },
   {
-    icon: Stethoscope,
-    title: "Root Canal Treatment",
+    icon: ScanLine,
+    title: "Digital Dental X-ray",
     description:
-      "Modern, single-sitting root canals with rotary endodontics — virtually painless.",
-    features: ["Single sitting RCT", "Latest rotary tools", "Save your natural tooth"],
+      "On-site digital X-ray imaging with significantly lower radiation than traditional film X-rays.",
+    features: ["Instant results", "Low radiation", "Accurate diagnosis"],
     gradient: "from-cyan-500 to-blue-500",
   },
   {
-    icon: Crown,
-    title: "Crowns & Bridges",
+    icon: Shield,
+    title: "Root Canal Treatment",
     description:
-      "Premium ceramic and zirconia crowns that look and feel like your natural teeth.",
-    features: ["Zirconia / E-max", "Perfect colour match", "10+ year warranty"],
+      "Modern, single-sitting root canals with rotary endodontics — virtually painless and saves your natural tooth.",
+    features: [
+      "Single-sitting RCT",
+      "Latest rotary tools",
+      "Save the natural tooth",
+    ],
     gradient: "from-emerald-500 to-teal-500",
   },
   {
     icon: Smile,
-    title: "Braces & Aligners",
+    title: "Orthodontic Treatment",
     description:
-      "Metal, ceramic, and clear aligners (Invisalign-style) for a perfectly aligned smile.",
-    features: ["Clear aligners", "Ceramic options", "Free first consultation"],
+      "Metal, ceramic, and clear aligners for a perfectly aligned smile — for kids, teens and adults.",
+    features: ["Braces & aligners", "Free first consult", "EMI options"],
     gradient: "from-cyan-500 to-teal-500",
   },
   {
-    icon: Shield,
-    title: "Dental Implants",
+    icon: Sparkles,
+    title: "Smile Makeover",
     description:
-      "Replace missing teeth with permanent, titanium-based implants from global brands.",
-    features: ["FDA-approved implants", "Lifetime solution", "Single-tooth to full-mouth"],
-    gradient: "from-teal-500 to-emerald-500",
+      "Custom cosmetic plan combining whitening, veneers and shaping to design the smile you want.",
+    features: ["Personalised design", "Veneers & laminates", "Natural finish"],
+    gradient: "from-teal-500 to-cyan-500",
   },
   {
     icon: Baby,
     title: "Kids Dentistry",
     description:
-      "Gentle, friendly care for your little ones — turning dental visits into a fun experience.",
+      "Pedodontic care for children — gentle, friendly, and turning dental visits into a fun experience.",
     features: ["Child-friendly clinic", "Painless techniques", "Cavity prevention"],
     gradient: "from-cyan-400 to-teal-400",
   },
   {
     icon: Zap,
-    title: "Cleaning & Polishing",
+    title: "Teeth Whitening",
     description:
-      "Ultrasonic scaling and polishing to remove tartar, plaque and stains safely.",
-    features: ["Ultrasonic scaler", "Stain removal", "Recommended every 6 months"],
+      "Professional whitening that brightens your smile up to 8 shades in a single session.",
+    features: ["Painless procedure", "Long-lasting", "Same-day result"],
     gradient: "from-blue-500 to-cyan-500",
+  },
+  {
+    icon: Crown,
+    title: "Filling & Crowns",
+    description:
+      "Tooth-coloured composite fillings and premium ceramic / zirconia crowns that look natural.",
+    features: ["Composite fillings", "Zirconia / E-max", "Perfect colour match"],
+    gradient: "from-emerald-500 to-cyan-500",
+  },
+  {
+    icon: Sparkles,
+    title: "Scaling & Cleaning",
+    description:
+      "Ultrasonic scaling and polishing to safely remove tartar, plaque and stains.",
+    features: ["Ultrasonic scaler", "Stain removal", "Recommended every 6 months"],
+    gradient: "from-cyan-500 to-blue-500",
   },
   {
     icon: HeartPulse,
     title: "Gum Treatment",
     description:
-      "Treatment for bleeding, swollen or receding gums with deep cleaning and laser therapy.",
-    features: ["Laser gum therapy", "Bleeding gums fix", "Long-term gum health"],
-    gradient: "from-emerald-500 to-cyan-500",
+      "Treatment for bleeding, swollen and receding gums with deep cleaning and modern therapy.",
+    features: ["Bleeding gums fix", "Deep cleaning", "Long-term gum health"],
+    gradient: "from-emerald-500 to-teal-500",
+  },
+  {
+    icon: Wrench,
+    title: "Tooth Extraction",
+    description:
+      "Safe, painless removal of damaged, infected or wisdom teeth — performed by an oral surgeon.",
+    features: ["Wisdom tooth removal", "Milk tooth extraction", "Painless surgery"],
+    gradient: "from-teal-500 to-emerald-500",
+  },
+  {
+    icon: Sparkles,
+    title: "Cosmetic Dentistry",
+    description:
+      "Veneers, contouring and aesthetic restorations to refine the look of your smile.",
+    features: ["Veneers", "Tooth shaping", "Aesthetic finish"],
+    gradient: "from-cyan-500 to-teal-500",
   },
 ];
 
 // ---------- Stats ----------
 export const stats = [
-  { icon: Users, value: "5,000+", label: "Happy Patients" },
+  { icon: Users, value: "3,000+", label: "Happy Smiles" },
   { icon: Award, value: "12+", label: "Years Experience" },
-  { icon: ThumbsUp, value: "98%", label: "Success Rate" },
-  { icon: Clock, value: "24/7", label: "Emergency Support" },
+  { icon: Star, value: "4.9 / 5", label: "Patient Rating" },
+  { icon: Clock, value: "10\u20137", label: "Open All 7 Days" },
 ];
 
 // ---------- Why Us ----------
 export const whyUs = [
   {
-    title: "Pain-Free Treatment",
+    title: "Experienced Specialist",
     description:
-      "Modern anesthesia and laser techniques ensure most procedures are virtually painless.",
+      "Treatment by Dr. Neelam Shah (BDS, MIDA) — Oral Surgeon and former Lecturer at FDS Dental College, Gorakhpur.",
   },
   {
-    title: "Sterilized Environment",
+    title: "Pain-Free Treatment",
     description:
-      "Hospital-grade autoclave sterilization for every instrument — your safety first.",
+      "Modern anaesthesia and gentle techniques ensure most procedures are virtually painless.",
+  },
+  {
+    title: "Sterilised Environment",
+    description:
+      "Hospital-grade autoclave sterilisation for every instrument — your safety always comes first.",
   },
   {
     title: "Latest Technology",
     description:
-      "Digital X-rays, intraoral cameras, rotary endodontics and laser dentistry.",
+      "Digital X-rays, rotary endodontics, ultrasonic scaling and modern dental equipment.",
   },
   {
     title: "Transparent Pricing",
     description:
-      "No hidden costs. Every treatment plan comes with a clear, written estimate.",
+      "No hidden costs. Every treatment plan comes with a clear, written estimate before we begin.",
   },
   {
-    title: "Experienced Doctors",
+    title: "Open All 7 Days",
     description:
-      "Decade-plus experience treating thousands of patients with consistent care.",
+      "10:00 AM to 7:00 PM, every day of the week — including Sundays — for your convenience.",
   },
-  {
-    title: "Easy EMI Available",
-    description:
-      "Affordable monthly payment plans for braces, implants and full-mouth rehab.",
-  },
+];
+
+// ---------- Doctor Highlights (used in About) ----------
+export const doctorHighlights = [
+  { icon: GraduationCap, label: doctor.qualification },
+  { icon: Award, label: doctor.experience },
+  { icon: Users, label: "3,000+ Smiles" },
 ];
 
 // ---------- Testimonials ----------
 export const testimonials = [
   {
     name: "Priya Sharma",
-    role: "Patient – Root Canal",
-    text: "Best dental clinic in the city! My RCT was completely painless and finished in a single sitting. Highly recommend.",
+    role: "Patient \u2013 Root Canal",
+    text: "Best dental clinic in Rangapara! My RCT was completely painless and finished in a single sitting. Dr. Neelam ma'am explains everything so patiently.",
     rating: 5,
   },
   {
     name: "Rahul Verma",
-    role: "Patient – Braces",
-    text: "Got my braces done here and the results are amazing. Doctor explains everything patiently and the staff is very friendly.",
+    role: "Patient \u2013 Braces",
+    text: "Got my braces done here and the results are amazing. The clinic is very clean, the staff is friendly, and pricing is transparent.",
     rating: 5,
   },
   {
     name: "Anita Gupta",
-    role: "Patient – Implants",
-    text: "Excellent implant work — feels exactly like my natural teeth. Worth every rupee. Hygiene standards are top-notch.",
+    role: "Parent \u2013 Kids Dentistry",
+    text: "My 6-year-old was scared of dentists but doctor handled him so gently that now he asks to visit. Highly recommend for kids.",
     rating: 5,
   },
   {
     name: "Vikram Singh",
-    role: "Patient – Whitening",
-    text: "Came in for whitening, walked out with a Bollywood-level smile in 60 minutes. Super clean clinic.",
+    role: "Patient \u2013 Whitening + Cleaning",
+    text: "Walked in for cleaning, came out with a Bollywood-level smile. Dr. Shah's experience really shows in the work. Worth every rupee.",
     rating: 5,
   },
 ];

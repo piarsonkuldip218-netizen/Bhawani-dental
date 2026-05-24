@@ -7,7 +7,7 @@ import { clinic, doctor } from "@/lib/data";
 const highlights = [
   { icon: GraduationCap, label: doctor.qualification },
   { icon: Award, label: doctor.experience },
-  { icon: Heart, label: "5000+ Smiles" },
+  { icon: Heart, label: "3,000+ Smiles" },
 ];
 
 const points = [
@@ -94,7 +94,7 @@ export default function About() {
                   <div>
                     <div className="text-xs text-slate-500">Patients served</div>
                     <div className="text-base font-bold text-slate-900">
-                      5,000+
+                      3,000+
                     </div>
                   </div>
                 </motion.div>

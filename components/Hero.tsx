@@ -74,7 +74,7 @@ export default function Hero() {
             >
               <Sparkles className="w-4 h-4 text-primary-600" />
               <span className="text-xs sm:text-sm font-medium text-slate-700">
-                Trusted by 5,000+ patients
+                Trusted by 3,000+ patients
               </span>
               <span className="ml-1 flex items-center gap-0.5 text-amber-500">
                 {[...Array(5)].map((_, i) => (
